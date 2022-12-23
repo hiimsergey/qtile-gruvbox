@@ -144,8 +144,7 @@ def powerline(rl, fg, bg):
         uc = ""
     else:
         uc = ""
-    i = widget.TextBox(text = uc, padding = 0, fontsize = 24, foreground=fg, background=bg)
-    return i
+    return widget.TextBox(text = uc, padding = 0, fontsize = 24, foreground=fg, background=bg)
 
 screens = [
     Screen(
