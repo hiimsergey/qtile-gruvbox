@@ -1,11 +1,14 @@
-#     ██████     █████     ███  ████            ~/.config/qtile/config.py
-#   ███░░░░███  ░░███     ░░░  ░░███            Qtile Window Manager configuration
-#  ███    ░░███ ███████   ████  ░███   ██████   # This config is probably best edited on fullscreen
-# ░███     ░███░░░███░   ░░███  ░███  ███░░███  # … since I really like long lines.
+#     ██████     █████     ███  ████          
+#   ███░░░░███  ░░███     ░░░  ░░███          
+#  ███    ░░███ ███████   ████  ░███   ██████ 
+# ░███     ░███░░░███░   ░░███  ░███  ███░░███
 # ░███   ██░███  ░███     ░███  ░███ ░███████ 
 # ░░███ ░░████   ░███ ███ ░███  ░███ ░███░░░  
 #  ░░░██████░██  ░░█████  █████ █████░░██████ 
-#    ░░░░░░ ░░    ░░░░░  ░░░░░ ░░░░░  ░░░░░░    github.com/hiimsergey/qtile-gruvbox 
+#    ░░░░░░ ░░    ░░░░░  ░░░░░ ░░░░░  ░░░░░░  
+# ~/.config/qtile/config.py
+# Qtile Configuration
+# https://github.com/hiimsergey/qtile-examples
 
 ## IMPORTS
 from libqtile import bar, layout, widget
@@ -69,6 +72,11 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+
+    # Volume
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 0 -q set Master 2dB+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 0 -q set Master 2dB-")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer -c 0 -q set Master toggle")),
 ]
 
 ## MOUSE
@@ -175,16 +183,23 @@ screens = [
                     length=800
                 ),
                 powerline(1, contrast, colo[0]),
-                powerline(1, cols[2], contrast),
-                powerline(1, colo[2], cols[2]),
+                powerline(1, cols[5], contrast),
+                powerline(1, colo[5], cols[5]),
                 widget.Systray(
-                    background=colo[2]
+                    background=colo[5]
                 ),
-                widget.BatteryIcon(
-                    background=colo[2]
+                widget.Volume(
+                    emoji=True,
+                    background=colo[5]
                 ),
-                powerline(1, cols[4], colo[2]),
+                widget.Volume(
+                    background=colo[5]
+                ),
+                powerline(1, cols[4], colo[5]),
                 powerline(1, colo[4], cols[4]),
+                widget.BatteryIcon(
+                    background=colo[4]
+                ),
                 widget.Battery(
                     charge_char="now ",
                     discharge_char="left",
