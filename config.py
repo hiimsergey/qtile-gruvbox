@@ -121,8 +121,7 @@ colo = [["#282828"], # bg
         ["#98971a"], # green
         ["#689d6a"], # aqua
         ["#458588"], # blue
-        ["#b16286"], # purple
-        ["#a89984"]] # gray
+        ["#b16286"]] # purple
 
 ### COLORS (soft versions)
 cols = [["#928374"],
@@ -132,8 +131,7 @@ cols = [["#928374"],
         ["#b8bb26"],
         ["#8ec07c"],
         ["#83a598"],
-        ["#d3869b"],
-        ["#ebdbb2"]]
+        ["#d3869b"]]
 contrast = "#1d2021"   # darker bg
 
 ## SCREENS
