@@ -154,19 +154,19 @@ screens = [
             [
                 widget.CurrentLayoutIcon(
                     scale=0.75,
-                    background=colors[3]
+                    background=colo[3]
                 ),
                 powerline(0, colo[3], cols[3]),
                 powerline(0, cols[3], colo[6]),
                 widget.GroupBox(
                     highlight_method="block",
-                    background=colors[6],
-                    this_current_screen_border=solors[6]
+                    background=colo[6],
+                    this_current_screen_border=cols[6]
                 ),
                 powerline(0, colo[6], cols[6]),
                 powerline(0, cols[6], colo[7]),
                 widget.WindowName(
-                    background=colors[7],
+                    background=colo[7],
                     empty_group_string="Gruvbox <3"
                 ),
                 powerline(0, colo[7], cols[7]),
@@ -180,10 +180,10 @@ screens = [
                 powerline(1, cols[2], contrast),
                 powerline(1, colo[2], cols[2]),
                 widget.Systray(
-                    background=colors[2]
+                    background=colo[2]
                 ),
                 widget.BatteryIcon(
-                    background=colors[2]
+                    background=colo[2]
                 ),
                 powerline(1, cols[4], colo[2]),
                 powerline(1, colo[4], cols[4]),
@@ -191,17 +191,17 @@ screens = [
                     charge_char="now ",
                     discharge_char="left",
                     format="{percent:2.0%} {char}",
-                    background=colors[4]
+                    background=colo[4]
                     ),
                 powerline(1, cols[1], colo[4]),
                 powerline(1, colo[1], cols[1]),
                 widget.Clock(
                     format="%Y-%m-%d %a %I:%M %p",
-                    background=colors[1]
+                    background=colo[1]
                 ),
             ],
             26,
-            background=colors[0]
+            background=colo[0]
         ),
     ),
 ]
