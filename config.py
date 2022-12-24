@@ -11,7 +11,8 @@
 # https://github.com/hiimsergey/qtile-examples
 
 ## IMPORTS
-from libqtile import bar, layout, widget
+import os, subprocess
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
@@ -22,6 +23,7 @@ browser = "chromium"
 notes = "obsidian"
 vm = "virt-manager"
 minecraft = "prismlauncher"
+screenshot = "gnome-screenshot -i"
 
 ## KEYS
 keys = [
@@ -31,6 +33,7 @@ keys = [
     Key([mod], "q", lazy.spawn(notes), desc="Launch notes"),
     Key([mod], "v", lazy.spawn(vm), desc="Launch virtual machines"),
     Key([mod], "g", lazy.spawn(minecraft), desc="Launch Minecraft"),
+    Key([mod], "x", lazy.spawn(screenshot), desc="Take a screenshot"),
 
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -114,13 +117,6 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-widget_defaults = dict(
-    font="Cantarell",
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
-
 ## COLORS
 colo = [["#282828"], # bg
         ["#cc241d"], # red
@@ -152,10 +148,18 @@ def powerline(rl, fg, bg):
         uc = ""
     return widget.TextBox(text = uc, padding = 0, fontsize = 24, foreground=fg, background=bg)
 
+widget_defaults = dict(
+    font="JetBrains Mono",
+    fontsize=12,
+    padding=3,
+    background=colo[0]
+)
+extension_defaults = widget_defaults.copy()
+
 screens = [
     Screen(
         wallpaper="~/.config/qtile/arch.png",
-        wallpaper_mode="stretch",
+        wallpaper_mode="fill",
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(
@@ -214,10 +218,15 @@ screens = [
                 ),
             ],
             26,
-            background=colo[0]
         ),
     ),
 ]
+
+## AUTOSTART
+@hook.subscribe.startup
+def autostart():
+    home = os.path.expanduser("~")
+    subprocess.call([home + "/.config/qtile/autostart.sh"])
 
 ## ETC
 dgroups_key_binder = None
