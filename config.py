@@ -24,8 +24,9 @@ notes = "obsidian"
 vm = "virt-manager"
 minecraft = "prismlauncher"
 screenshot = "gnome-screenshot -i"
+files = "thunar Downloads"
 
-## KEYS
+# KEYS
 keys = [
     # Launch applications
     Key([mod], "a", lazy.spawn(terminal), desc="Launch terminal"),
@@ -34,6 +35,7 @@ keys = [
     Key([mod], "v", lazy.spawn(vm), desc="Launch virtual machines"),
     Key([mod], "g", lazy.spawn(minecraft), desc="Launch Minecraft"),
     Key([mod], "x", lazy.spawn(screenshot), desc="Take a screenshot"),
+    Key([mod], "e", lazy.spawn(files), desc="Launch file manager"),
 
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -158,7 +160,8 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper="~/.config/qtile/arch.png",
+#       wallpaper="~/.config/qtile/arch.png",
+        wallpaper="~/.config/qtile/astronaut.jpg",
         wallpaper_mode="fill",
         top=bar.Bar(
             [
