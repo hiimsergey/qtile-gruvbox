@@ -1,4 +1,4 @@
-# ⚠️ Development has moved to [gruvbox-material](github.com/hiimsergey/qtile-gruvbox-material) ⚠️
+# ⚠️ Development has moved to [gruvbox-material](https://github.com/hiimsergey/qtile-gruvbox-material) ⚠️
 
 # Qtile Gruvbox Configuration
 *A simple Qtile configuration with the superior theme*
